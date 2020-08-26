@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Koai.WebApi", "Koai.WebApi\Koai.WebApi.csproj", "{22A0B04C-14C8-4A12-8DF6-9444E17FA126}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Koai.MultiTenancy", "Koai.MultiTenancy\Koai.MultiTenancy.csproj", "{1839344F-C045-444A-BBD6-4182C057BCE7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22A0B04C-14C8-4A12-8DF6-9444E17FA126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22A0B04C-14C8-4A12-8DF6-9444E17FA126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22A0B04C-14C8-4A12-8DF6-9444E17FA126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22A0B04C-14C8-4A12-8DF6-9444E17FA126}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1839344F-C045-444A-BBD6-4182C057BCE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1839344F-C045-444A-BBD6-4182C057BCE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1839344F-C045-444A-BBD6-4182C057BCE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1839344F-C045-444A-BBD6-4182C057BCE7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
