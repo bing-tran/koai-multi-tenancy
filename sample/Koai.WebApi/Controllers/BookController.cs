@@ -20,7 +20,7 @@ namespace Koai.WebApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetBooks()
+        public IActionResult GetBooksAsync()
         {
             var books = new List<Book>
             {

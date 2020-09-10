@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Koai.MultiTenancy", "src\Ko
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Koai.MultiTenancy.Test", "test\Koai.MultiTenancy.Test\Koai.MultiTenancy.Test.csproj", "{FF3C6AE6-2E52-4BEB-B962-8F8EB6751F14}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Koai.MultiTenancy.CoreApi", "src\Koai.MultiTenancy.CoreApi\Koai.MultiTenancy.CoreApi.csproj", "{27E8CDA8-6FB5-4436-A896-C0D2CC1D67FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,10 +33,15 @@ Global
 		{FF3C6AE6-2E52-4BEB-B962-8F8EB6751F14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF3C6AE6-2E52-4BEB-B962-8F8EB6751F14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF3C6AE6-2E52-4BEB-B962-8F8EB6751F14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27E8CDA8-6FB5-4436-A896-C0D2CC1D67FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27E8CDA8-6FB5-4436-A896-C0D2CC1D67FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27E8CDA8-6FB5-4436-A896-C0D2CC1D67FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27E8CDA8-6FB5-4436-A896-C0D2CC1D67FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4822D88F-7613-4258-8859-929B44965318} = {61199993-7282-4DDD-826B-63E94A6F082E}
 		{1B58457C-A49B-48C9-ACC9-9F044E156A1F} = {E7A17C78-E0BA-417C-8434-9E470753E222}
 		{FF3C6AE6-2E52-4BEB-B962-8F8EB6751F14} = {9E567C26-4B0B-4C89-B96C-4086C3E2583D}
+		{27E8CDA8-6FB5-4436-A896-C0D2CC1D67FD} = {E7A17C78-E0BA-417C-8434-9E470753E222}
 	EndGlobalSection
 EndGlobal

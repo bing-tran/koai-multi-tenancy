@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Koai.MultiTenancy.Abstractions
@@ -11,7 +11,7 @@ namespace Koai.MultiTenancy.Abstractions
     public interface ITenantResolver<TTenant, TKey>
         where TTenant : class, IIdentityTenant<TKey>, new()
     {
-        IMultiTenantStrategy<TKey> Strategy { get; set; }
+        IEnumerable<IMultiTenantStrategy<TKey>> Strategies { get; set; }
         ITenantProvider<TTenant, TKey> Provider { get; set; }
 
         Task<IMultiTenantContext<TTenant, TKey>> ResolveAsync(object context);

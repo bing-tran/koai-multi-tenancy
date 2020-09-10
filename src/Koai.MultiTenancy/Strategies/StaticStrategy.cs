@@ -15,7 +15,7 @@ namespace Koai.MultiTenancy.Strategies
 
         public Task<TKey> GetIdentifierAsync(object context)
         {
-            return Task.FromResult<TKey>(_identifier);
+            return Task.FromResult(_identifier);
         }
     }
 }

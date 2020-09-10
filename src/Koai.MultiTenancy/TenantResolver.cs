@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Koai.MultiTenancy.Abstractions;
 
@@ -7,12 +7,12 @@ namespace Koai.MultiTenancy
     public class TenantResolver<TTenant, TKey> : ITenantResolver<TTenant, TKey>, ITenantResolver
         where TTenant : class, IIdentityTenant<TKey>, new()
     {
-        public IMultiTenantStrategy<TKey> Strategy { get; set; }
+        public IEnumerable<IMultiTenantStrategy<TKey>> Strategies { get; set; }
         public ITenantProvider<TTenant, TKey> Provider { get; set; }
 
-        public TenantResolver(IMultiTenantStrategy<TKey> strategy, ITenantProvider<TTenant, TKey> provider)
+        public TenantResolver(IEnumerable<IMultiTenantStrategy<TKey>> strategies, ITenantProvider<TTenant, TKey> provider)
         {
-            Strategy = strategy;
+            Strategies = strategies;
             Provider = provider;
         }
 
@@ -20,16 +20,21 @@ namespace Koai.MultiTenancy
         {
             IMultiTenantContext<TTenant, TKey> result = null;
 
-            var tenantId = await Strategy.GetIdentifierAsync(context);
-            if (!Equals(tenantId, default(TKey)))
+            foreach (var strategy in Strategies)
             {
-                var tenant = await Provider.GetTenantAsync(tenantId);
-                if (tenant != null)
+                var tenantIdentifier = await strategy.GetIdentifierAsync(context);
+                if (!Equals(tenantIdentifier, default(TKey)))
                 {
-                    result = new MultiTenantContext<TTenant, TKey>();
-                    result.Strategy = Strategy;
-                    result.Provider = Provider;
-                    result.Tenant = tenant;
+                    var tenant = await Provider.GetTenantAsync(tenantIdentifier);
+                    if (tenant != null)
+                    {
+                        return new MultiTenantContext<TTenant, TKey>
+                        {
+                            Strategy = strategy,
+                            Provider = Provider,
+                            Tenant = tenant
+                        };
+                    }
                 }
             }
 
