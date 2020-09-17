@@ -1,9 +1,9 @@
 ﻿using System;
 using Koai.MultiTenancy.Abstractions;
-using Koai.MultiTenancy.CoreApi.Strategies;
+using Koai.MultiTenancy.WebApi.Strategies;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Koai.MultiTenancy.CoreApi.Extensions
+namespace Microsoft.Extensions.DependencyInjection
 {
     public static class MultiTenantBuilderExtensions
     {
@@ -43,7 +43,7 @@ namespace Koai.MultiTenancy.CoreApi.Extensions
         /// </summary>
         /// <param name="httpHeaderAttributeKey">The http request header attribute key for determining the tenant identifier in the http request header attribute.</param>
         /// <returns>The same MultiTenantBuilder passed into the method.</returns>
-        public static MultiTenantBuilder<TTenant, TKey> WithHttpHeaderAttributeStrategy<TTenant, TKey>(this MultiTenantBuilder<TTenant, TKey> builder,
+        public static MultiTenantBuilder<TTenant, TKey> WithHeaderAttributeStrategy<TTenant, TKey>(this MultiTenantBuilder<TTenant, TKey> builder,
             string httpHeaderAttributeKey)
             where TTenant : class, IIdentityTenant<TKey>, new()
         {

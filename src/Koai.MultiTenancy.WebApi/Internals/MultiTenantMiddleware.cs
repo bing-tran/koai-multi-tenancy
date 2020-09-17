@@ -3,7 +3,7 @@ using Koai.MultiTenancy.Abstractions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Koai.MultiTenancy.CoreApi
+namespace Koai.MultiTenancy.WebApi
 {
     /// <summary>
     /// Middleware for resolving the TenantContext and storing it in HttpContext.

@@ -5,7 +5,7 @@ using Koai.MultiTenancy.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Primitives;
 
-namespace Koai.MultiTenancy.CoreApi.Strategies
+namespace Koai.MultiTenancy.WebApi.Strategies
 {
     public class HttpHeaderAttrStrategy<TKey> : IMultiTenantStrategy<TKey>
     {
@@ -24,11 +24,11 @@ namespace Koai.MultiTenancy.CoreApi.Strategies
             var hasTenant = httpContext.Request.Headers.TryGetValue(_tenantAttrKey, out StringValues tenantIdentifierStrVal);
             if (hasTenant && !StringValues.IsNullOrEmpty(tenantIdentifierStrVal))
             {
-                var tenantIdentifier = (TKey)Convert.ChangeType(tenantIdentifierStrVal, typeof(TKey));
+                var tenantIdentifier = (TKey)Convert.ChangeType(tenantIdentifierStrVal.ToString(), typeof(TKey));
                 return Task.FromResult(tenantIdentifier);
             }
 
-            return default;
+            return Task.FromResult<TKey>(default);
         }
     }
 }

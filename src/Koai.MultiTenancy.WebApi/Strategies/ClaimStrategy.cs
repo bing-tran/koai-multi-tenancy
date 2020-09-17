@@ -4,7 +4,7 @@ using Koai.MultiTenancy.Abstractions;
 using Koai.MultiTenancy.Exceptions;
 using Microsoft.AspNetCore.Http;
 
-namespace Koai.MultiTenancy.CoreApi.Strategies
+namespace Koai.MultiTenancy.WebApi.Strategies
 {
 	public class ClaimStrategy<TKey> : IMultiTenantStrategy<TKey>
 	{

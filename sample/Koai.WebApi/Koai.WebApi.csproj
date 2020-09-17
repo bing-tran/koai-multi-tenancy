@@ -10,5 +10,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="MultiTenancy\" />
+    <Folder Include="Configurations\" />
+    <Folder Include="Configurations\Swagger\" />
+    <Folder Include="Configurations\Response\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Koai.MultiTenancy\Koai.MultiTenancy.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Koai.MultiTenancy.WebApi\Koai.MultiTenancy.WebApi.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 </Project>

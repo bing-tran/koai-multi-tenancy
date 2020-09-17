@@ -13,6 +13,15 @@ namespace Microsoft.Extensions.DependencyInjection
             Services = services;
         }
 
+        /// <summary>
+        /// Adds and configures singleton ITenantProvider to the application using default dependency injection.
+        /// </summary>>
+        /// <param name="lifetime">The service lifetime.</param>
+        /// <param name="parameters">a paramter list for any constructor paramaters not covered by dependency injection.</param>
+        /// <returns>The same MultiTenantBuilder passed into the method.</returns>
+        public MultiTenantBuilder<TTenant, TKey> WithProvider<TProvider>()
+            where TProvider : ITenantProvider<TTenant, TKey>
+            => WithProvider<TProvider>(ServiceLifetime.Singleton);
 
         /// <summary>
         /// Adds and configures a ITenantProvider to the application using default dependency injection.

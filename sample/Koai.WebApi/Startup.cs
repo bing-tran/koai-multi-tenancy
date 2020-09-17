@@ -1,5 +1,9 @@
+using Koai.WebApi.Configurations.Response;
+using Koai.WebApi.Configurations.Swagger;
+using Koai.WebApi.MultiTenancy;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -18,8 +22,12 @@ namespace Koai.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-            services.AddSwaggerGen();
+            services.AddControllers(opt => opt.Conventions.Add(new RouteTokenTransformerConvention(new SlugifyParameterTransformer())));
+            services.AddSwaggerGen(opt => opt.OperationFilter<TenantHeaderAttrFilter>());
+
+            services.AddMultiTenant<Tenant, int>()
+                .WithProvider<KoaiTenantProvider>()
+                .WithHeaderAttributeStrategy("x-tenant");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +47,8 @@ namespace Koai.WebApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseMultiTenantcy();
 
             app.UseAuthorization();
 

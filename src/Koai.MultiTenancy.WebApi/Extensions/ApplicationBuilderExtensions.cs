@@ -1,4 +1,4 @@
-﻿using Koai.MultiTenancy.CoreApi;
+﻿using Koai.MultiTenancy.WebApi;
 
 namespace Microsoft.AspNetCore.Builder
 {

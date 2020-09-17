@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Koai.MultiTenancy", "src\Ko
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Koai.MultiTenancy.Test", "test\Koai.MultiTenancy.Test\Koai.MultiTenancy.Test.csproj", "{FF3C6AE6-2E52-4BEB-B962-8F8EB6751F14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Koai.MultiTenancy.CoreApi", "src\Koai.MultiTenancy.CoreApi\Koai.MultiTenancy.CoreApi.csproj", "{27E8CDA8-6FB5-4436-A896-C0D2CC1D67FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Koai.MultiTenancy.WebApi", "src\Koai.MultiTenancy.WebApi\Koai.MultiTenancy.WebApi.csproj", "{27E8CDA8-6FB5-4436-A896-C0D2CC1D67FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

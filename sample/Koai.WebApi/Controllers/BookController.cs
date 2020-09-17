@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Koai.WebApi.Models;
+using Koai.WebApi.MultiTenancy;
+using Koai.MultiTenancy;
 
 namespace Koai.WebApi.Controllers
 {
@@ -22,6 +24,11 @@ namespace Koai.WebApi.Controllers
         [HttpGet]
         public IActionResult GetBooksAsync()
         {
+            var tenantContext = this.HttpContext.GetMultiTenantContext<Tenant, int>();
+            _logger.LogDebug($"Tenant provider {tenantContext?.Provider?.GetType()}");
+            _logger.LogDebug($"Tenant Strategy {tenantContext?.Strategy?.GetType()}");
+            _logger.LogDebug($"Tenant: Id {tenantContext?.Tenant?.Id}, Name: {tenantContext?.Tenant?.Name}");
+
             var books = new List<Book>
             {
                 new Book { Id = 1, Name = "Brief History of Time ", Publisher = "Koai Books" }
